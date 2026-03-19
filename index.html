@@ -306,728 +306,109 @@
   <div class="container">
     <div class="text-center mb-5">
       <span class="section-label reveal">Join Us</span>
-      <h2 class="section-title reveal reveal-delay-1">Register &amp; Get Started</h2>
+      <h2 class="section-title reveal reveal-delay-1">Get Started — Choose Your Programme</h2>
       <p class="section-subtitle mx-auto reveal reveal-delay-2">
-        Choose your category and the form will show exactly the fields relevant to you.
-        We will be in touch within 24 hours.
+        Select the option that applies to you. You'll be taken to a short, focused form with only the fields relevant to your enrolment.
       </p>
     </div>
+
     <div class="registration-wrapper reveal">
 
-      <!-- DYNAMIC REGISTRATION FORM -->
+      <!-- ENROLMENT CARDS -->
       <div class="form-panel">
 
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--color-border)">
           <img src="images/logo.png" alt="CodeBridge Africa" style="height:44px;width:auto" />
           <div>
-            <h2 style="font-size:1.35rem;margin:0">Registration Form</h2>
-            <p style="margin:0;font-size:0.82rem;color:var(--color-text-muted)">Fields marked <span style="color:var(--color-primary)">*</span> are required.</p>
+            <h3 style="margin:0;font-size:1.15rem">Register with CodeBridge Africa</h3>
+            <p style="margin:0;font-size:.82rem;color:var(--color-text-muted)">Each form is short and tailored — takes about 3 minutes.</p>
           </div>
         </div>
 
-        <!-- STEP 1: Category selector -->
-        <div class="form-group" style="margin-bottom:1.5rem">
-          <label class="form-label" for="reg-category">I am registering as / for <span class="required">*</span></label>
-          <div class="form-select-wrapper">
-            <select id="reg-category" name="category" class="form-select" required>
-              <option value="">— Please select a category —</option>
-              <option value="kids">A Child (Ages 6–12) — CodeBridge Kids</option>
-              <option value="teens">A Teen (Ages 13–19) — Teen Techies</option>
-              <option value="university">A University Student</option>
-              <option value="adult">An Adult / Professional (18+)</option>
-              <option value="career">A Career Switcher (moving into tech)</option>
-              <option value="it">IT Services / Business Enquiry</option>
-            </select>
+        <!-- KIDS -->
+        <a href="pages/enrol-kids.html" class="enrol-card">
+          <div class="enrol-card-icon" style="background:rgba(232,93,26,.1)">
+            <i class="bi bi-stars" style="color:var(--color-primary)"></i>
           </div>
-        </div>
+          <div class="enrol-card-body">
+            <div class="enrol-card-badge badge-orange">Ages 6 – 12</div>
+            <h4>CodeBridge Kids</h4>
+            <p>Parent or guardian enrolling a child in our coding programme.</p>
+          </div>
+          <i class="bi bi-arrow-right-circle enrol-card-arrow"></i>
+        </a>
 
-        <!-- Placeholder shown before category is chosen -->
-        <div id="form-placeholder" style="text-align:center;padding:2rem 1rem;color:var(--color-text-muted);font-size:0.9rem">
-          <i class="bi bi-arrow-up-circle" style="font-size:2rem;color:var(--color-primary);display:block;margin-bottom:0.5rem"></i>
-          Select a category above to continue
-        </div>
+        <!-- TEENS -->
+        <a href="pages/enrol-teens.html" class="enrol-card">
+          <div class="enrol-card-icon" style="background:rgba(0,137,123,.1)">
+            <i class="bi bi-lightning-charge" style="color:var(--color-teal)"></i>
+          </div>
+          <div class="enrol-card-body">
+            <div class="enrol-card-badge badge-teal">Ages 13 – 19</div>
+            <h4>Teen Techies</h4>
+            <p>Enrolling a teenager in our web development and Python programme.</p>
+          </div>
+          <i class="bi bi-arrow-right-circle enrol-card-arrow"></i>
+        </a>
 
-        <!-- MAIN FORM (hidden until category chosen) -->
-        <form id="registrationForm" novalidate style="display:none">
+        <!-- ADULTS -->
+        <a href="pages/enrol-adults.html" class="enrol-card">
+          <div class="enrol-card-icon" style="background:rgba(46,125,50,.1)">
+            <i class="bi bi-person-workspace" style="color:var(--color-green)"></i>
+          </div>
+          <div class="enrol-card-body">
+            <div class="enrol-card-badge badge-green">18 &amp; Above</div>
+            <h4>Adults &amp; Professionals</h4>
+            <p>Self-enrolling in full-stack, data science, cloud, or cybersecurity.</p>
+          </div>
+          <i class="bi bi-arrow-right-circle enrol-card-arrow"></i>
+        </a>
 
-          <input type="hidden" id="reg-category-hidden" name="category" />
+        <!-- UNIVERSITY -->
+        <a href="pages/enrol-university.html" class="enrol-card">
+          <div class="enrol-card-icon" style="background:rgba(240,180,41,.15)">
+            <i class="bi bi-mortarboard-fill" style="color:#b38600"></i>
+          </div>
+          <div class="enrol-card-body">
+            <div class="enrol-card-badge badge-yellow">University</div>
+            <h4>University Students</h4>
+            <p>Advanced specialisations to complement your degree and build a real portfolio.</p>
+          </div>
+          <i class="bi bi-arrow-right-circle enrol-card-arrow"></i>
+        </a>
 
-          <!-- ═══════════════════════════════════════════
-               BLOCK A — PARENT / GUARDIAN DETAILS
-               Shown for: Kids, Teens
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-parent" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-person-fill"></i> Parent / Guardian Details</div>
+        <!-- CAREER -->
+        <a href="pages/enrol-career.html" class="enrol-card">
+          <div class="enrol-card-icon" style="background:rgba(26,43,74,.08)">
+            <i class="bi bi-arrow-left-right" style="color:var(--color-navy)"></i>
+          </div>
+          <div class="enrol-card-body">
+            <div class="enrol-card-badge badge-navy">Career Change</div>
+            <h4>Career Switchers</h4>
+            <p>Already working in another field and ready to move into tech.</p>
+          </div>
+          <i class="bi bi-arrow-right-circle enrol-card-arrow"></i>
+        </a>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="parent-name">Full Name <span class="required">*</span></label>
-                <input type="text" id="parent-name" name="parent_name" class="form-control" placeholder="e.g. Ama Mensah" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="parent-relation">Relationship to Child <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="parent-relation" name="parent_relation" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="mother">Mother</option>
-                    <option value="father">Father</option>
-                    <option value="guardian">Guardian</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+        <!-- IT SERVICES -->
+        <a href="pages/enrol-it-services.html" class="enrol-card">
+          <div class="enrol-card-icon" style="background:rgba(0,137,123,.1)">
+            <i class="bi bi-laptop" style="color:var(--color-teal)"></i>
+          </div>
+          <div class="enrol-card-body">
+            <div class="enrol-card-badge badge-teal">Business</div>
+            <h4>IT Services Enquiry</h4>
+            <p>Looking for software development, IT consulting, network or tech support.</p>
+          </div>
+          <i class="bi bi-arrow-right-circle enrol-card-arrow"></i>
+        </a>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="parent-email">Email Address <span class="required">*</span></label>
-                <input type="email" id="parent-email" name="parent_email" class="form-control" placeholder="parent@example.com" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="parent-phone">Phone Number <span class="required">*</span></label>
-                <input type="tel" id="parent-phone" name="parent_phone" class="form-control" placeholder="+233 XX XXX XXXX" />
-              </div>
-            </div>
+        <p style="text-align:center;font-size:.82rem;color:var(--color-text-muted);margin-top:1.5rem">
+          Not sure which to choose?
+          <a href="pages/contact.html">Send us a message</a> or
+          <a href="https://wa.me/233245676676" target="_blank" rel="noopener">WhatsApp us</a> — we'll guide you.
+        </p>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="parent-whatsapp">WhatsApp Number</label>
-                <input type="tel" id="parent-whatsapp" name="parent_whatsapp" class="form-control" placeholder="If different from phone" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="parent-comms">Preferred Communication <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="parent-comms" name="parent_preferred_comms" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="whatsapp">WhatsApp</option>
-                    <option value="phone-call">Phone Call</option>
-                    <option value="email">Email</option>
-                    <option value="sms">SMS</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="parent-location">City / Town of Residence <span class="required">*</span></label>
-                <input type="text" id="parent-location" name="parent_location" class="form-control" placeholder="e.g. Accra, Kumasi" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="parent-nationality">Nationality</label>
-                <input type="text" id="parent-nationality" name="parent_nationality" class="form-control" placeholder="e.g. Ghanaian" />
-              </div>
-            </div>
-
-            <!-- Emergency contact (different from parent) -->
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="emergency-name">Emergency Contact Name</label>
-                <input type="text" id="emergency-name" name="emergency_contact_name" class="form-control" placeholder="If different from above" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="emergency-phone">Emergency Contact Phone</label>
-                <input type="tel" id="emergency-phone" name="emergency_contact_phone" class="form-control" placeholder="+233 XX XXX XXXX" />
-              </div>
-            </div>
-          </div><!-- /block-parent -->
-
-          <!-- ═══════════════════════════════════════════
-               BLOCK B — CHILD / STUDENT DETAILS
-               Shown for: Kids, Teens
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-child" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-stars"></i> Child / Student Details</div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="child-name">Child's Full Name <span class="required">*</span></label>
-                <input type="text" id="child-name" name="child_name" class="form-control" placeholder="e.g. Kofi Mensah" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="child-dob">Date of Birth <span class="required">*</span></label>
-                <input type="date" id="child-dob" name="child_dob" class="form-control" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="child-gender">Gender</label>
-                <div class="form-select-wrapper">
-                  <select id="child-gender" name="child_gender" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="prefer-not">Prefer not to say</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="child-nationality">Nationality</label>
-                <input type="text" id="child-nationality" name="child_nationality" class="form-control" placeholder="e.g. Ghanaian" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="child-school">Current School <span class="required">*</span></label>
-                <input type="text" id="child-school" name="child_school" class="form-control" placeholder="e.g. Accra Academy" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="child-class">Current Class / Year</label>
-                <input type="text" id="child-class" name="child_class" class="form-control" placeholder="e.g. Primary 4 / JHS 2" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="child-experience">Prior Coding Experience?</label>
-                <div class="form-select-wrapper">
-                  <select id="child-experience" name="child_prior_experience" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="none">None at all</option>
-                    <option value="basic">A little (played with Scratch etc.)</option>
-                    <option value="some">Some (used Scratch / basic Python)</option>
-                    <option value="good">Good (writes code independently)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="child-device">Does the child have a device?</label>
-                <div class="form-select-wrapper">
-                  <select id="child-device" name="child_has_device" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="yes-laptop">Yes — Laptop / PC</option>
-                    <option value="yes-tablet">Yes — Tablet</option>
-                    <option value="no">No device available</option>
-                    <option value="shared">Shared family device</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="child-medical">Medical / Special Needs or Allergies</label>
-              <textarea id="child-medical" name="child_medical_notes" class="form-control" rows="2"
-                placeholder="Any conditions, learning needs, or allergies we should be aware of. Leave blank if none."></textarea>
-            </div>
-          </div><!-- /block-child -->
-
-          <!-- ═══════════════════════════════════════════
-               BLOCK C — ADULT / SELF DETAILS
-               Shown for: University, Adult, Career Switcher
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-adult" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-person-badge-fill"></i> Your Personal Details</div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="adult-fname">First Name <span class="required">*</span></label>
-                <input type="text" id="adult-fname" name="first_name" class="form-control" placeholder="e.g. Kofi" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="adult-lname">Last Name <span class="required">*</span></label>
-                <input type="text" id="adult-lname" name="last_name" class="form-control" placeholder="e.g. Mensah" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="adult-dob">Date of Birth <span class="required">*</span></label>
-                <input type="date" id="adult-dob" name="date_of_birth" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="adult-gender">Gender</label>
-                <div class="form-select-wrapper">
-                  <select id="adult-gender" name="gender" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="prefer-not">Prefer not to say</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="adult-nationality">Nationality</label>
-                <input type="text" id="adult-nationality" name="nationality" class="form-control" placeholder="e.g. Ghanaian" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="adult-location">City / Town of Residence <span class="required">*</span></label>
-                <input type="text" id="adult-location" name="location" class="form-control" placeholder="e.g. Accra, Kumasi" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="adult-email">Email Address <span class="required">*</span></label>
-                <input type="email" id="adult-email" name="email" class="form-control" placeholder="you@example.com" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="adult-phone">Phone Number <span class="required">*</span></label>
-                <input type="tel" id="adult-phone" name="phone" class="form-control" placeholder="+233 XX XXX XXXX" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="adult-whatsapp">WhatsApp Number</label>
-                <input type="tel" id="adult-whatsapp" name="whatsapp" class="form-control" placeholder="If different from phone" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="adult-comms">Preferred Communication <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="adult-comms" name="preferred_comms" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="whatsapp">WhatsApp</option>
-                    <option value="phone-call">Phone Call</option>
-                    <option value="email">Email</option>
-                    <option value="sms">SMS</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="adult-occupation">Current Occupation</label>
-                <input type="text" id="adult-occupation" name="occupation" class="form-control" placeholder="e.g. Teacher, Accountant, Student" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="adult-employer">Employer / Organisation</label>
-                <input type="text" id="adult-employer" name="employer" class="form-control" placeholder="e.g. ABC Company (optional)" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="adult-device">What device will you use for learning? <span class="required">*</span></label>
-              <div class="form-select-wrapper">
-                <select id="adult-device" name="device_available" class="form-select">
-                  <option value="">— Select —</option>
-                  <option value="laptop-pc">Laptop / Desktop PC</option>
-                  <option value="tablet">Tablet</option>
-                  <option value="smartphone-only">Smartphone only</option>
-                  <option value="no-device">No device — I need guidance</option>
-                </select>
-              </div>
-            </div>
-          </div><!-- /block-adult -->
-
-          <!-- ═══════════════════════════════════════════
-               BLOCK D — UNIVERSITY-SPECIFIC FIELDS
-               Shown for: University
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-university" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-building-fill"></i> University Details</div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="uni-name">University / Institution <span class="required">*</span></label>
-                <input type="text" id="uni-name" name="university" class="form-control" placeholder="e.g. University of Ghana" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="uni-year">Year of Study <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="uni-year" name="year_of_study" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="year-1">Year 1</option>
-                    <option value="year-2">Year 2</option>
-                    <option value="year-3">Year 3</option>
-                    <option value="year-4">Year 4</option>
-                    <option value="postgrad">Postgraduate</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="uni-course">Course / Programme of Study</label>
-                <input type="text" id="uni-course" name="course_of_study" class="form-control" placeholder="e.g. BSc Computer Science" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="uni-grad-year">Expected Graduation Year</label>
-                <input type="number" id="uni-grad-year" name="graduation_year" class="form-control" placeholder="e.g. 2026" min="2024" max="2035" />
-              </div>
-            </div>
-          </div><!-- /block-university -->
-
-          <!-- ═══════════════════════════════════════════
-               BLOCK E — CAREER SWITCHER SPECIFIC
-               Shown for: Career Switcher
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-career" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-arrow-repeat"></i> Career Background</div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="career-current">Current Industry / Field</label>
-                <input type="text" id="career-current" name="current_industry" class="form-control" placeholder="e.g. Banking, Teaching, Sales" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="career-experience">Years of Work Experience</label>
-                <div class="form-select-wrapper">
-                  <select id="career-experience" name="years_experience" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="0-1">Less than 1 year</option>
-                    <option value="1-3">1 – 3 years</option>
-                    <option value="3-5">3 – 5 years</option>
-                    <option value="5-10">5 – 10 years</option>
-                    <option value="10-plus">10+ years</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="career-target">Target Tech Role <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="career-target" name="target_role" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="web-dev">Web Developer</option>
-                    <option value="data-analyst">Data Analyst</option>
-                    <option value="ui-ux">UI/UX Designer</option>
-                    <option value="cybersecurity">Cybersecurity</option>
-                    <option value="not-sure">Not sure yet</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="career-coding">Any prior coding experience?</label>
-                <div class="form-select-wrapper">
-                  <select id="career-coding" name="prior_coding" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="none">None</option>
-                    <option value="self-taught-basics">Self-taught basics</option>
-                    <option value="online-courses">Completed online courses</option>
-                    <option value="some-professional">Some professional experience</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="career-motivation">What is motivating your switch to tech?</label>
-              <textarea id="career-motivation" name="motivation" class="form-control" rows="2"
-                placeholder="Briefly tell us what is driving this change..."></textarea>
-            </div>
-          </div><!-- /block-career -->
-
-          <!-- ═══════════════════════════════════════════
-               BLOCK F — IT SERVICES ENQUIRY
-               Shown for: IT Services
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-it" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-laptop"></i> Business / Organisation Details</div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="it-contact">Contact Person Full Name <span class="required">*</span></label>
-                <input type="text" id="it-contact" name="contact_name" class="form-control" placeholder="e.g. Akua Boateng" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="it-role">Job Title / Role</label>
-                <input type="text" id="it-role" name="contact_role" class="form-control" placeholder="e.g. CEO, IT Manager" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="it-company">Company / Organisation Name</label>
-                <input type="text" id="it-company" name="company_name" class="form-control" placeholder="e.g. ABC Enterprises" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="it-industry">Industry / Sector</label>
-                <div class="form-select-wrapper">
-                  <select id="it-industry" name="company_industry" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="education">Education</option>
-                    <option value="finance">Finance / Banking</option>
-                    <option value="retail">Retail / E-commerce</option>
-                    <option value="health">Healthcare</option>
-                    <option value="ngo">NGO / Non-Profit</option>
-                    <option value="government">Government</option>
-                    <option value="hospitality">Hospitality / Tourism</option>
-                    <option value="agriculture">Agriculture</option>
-                    <option value="logistics">Logistics / Transport</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="it-size">Company Size</label>
-                <div class="form-select-wrapper">
-                  <select id="it-size" name="company_size" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="1">Just me (freelancer / sole trader)</option>
-                    <option value="2-10">2 – 10 employees</option>
-                    <option value="11-50">11 – 50 employees</option>
-                    <option value="51-200">51 – 200 employees</option>
-                    <option value="200-plus">200+ employees</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="it-location">Company Location</label>
-                <input type="text" id="it-location" name="company_location" class="form-control" placeholder="e.g. Accra, Kumasi" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="it-email">Business Email <span class="required">*</span></label>
-                <input type="email" id="it-email" name="email" class="form-control" placeholder="contact@company.com" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="it-phone">Phone Number <span class="required">*</span></label>
-                <input type="tel" id="it-phone" name="phone" class="form-control" placeholder="+233 XX XXX XXXX" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="it-whatsapp">WhatsApp Number</label>
-                <input type="tel" id="it-whatsapp" name="whatsapp" class="form-control" placeholder="If different from phone" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="it-comms">Preferred Communication <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="it-comms" name="preferred_comms" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="whatsapp">WhatsApp</option>
-                    <option value="phone-call">Phone Call</option>
-                    <option value="email">Email</option>
-                    <option value="in-person">In-Person Meeting</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="it-service">Service Required <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="it-service" name="service_required" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="software-dev">Software / Web Development</option>
-                    <option value="mobile-app">Mobile App Development</option>
-                    <option value="it-consulting">IT Consulting</option>
-                    <option value="network">Network Solutions</option>
-                    <option value="tech-support">Tech Support / Maintenance</option>
-                    <option value="cybersecurity">Cybersecurity</option>
-                    <option value="data">Data / Analytics Solutions</option>
-                    <option value="training">Staff IT Training</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="it-budget">Approximate Budget (GHS)</label>
-                <div class="form-select-wrapper">
-                  <select id="it-budget" name="budget_range" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="under-1000">Under GHS 1,000</option>
-                    <option value="1000-5000">GHS 1,000 – 5,000</option>
-                    <option value="5000-15000">GHS 5,000 – 15,000</option>
-                    <option value="15000-50000">GHS 15,000 – 50,000</option>
-                    <option value="50000-plus">GHS 50,000+</option>
-                    <option value="discuss">Prefer to discuss</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="it-timeline">Preferred Timeline / Start Date</label>
-              <div class="form-select-wrapper">
-                <select id="it-timeline" name="timeline" class="form-select">
-                  <option value="">— Select —</option>
-                  <option value="asap">As soon as possible</option>
-                  <option value="1-month">Within 1 month</option>
-                  <option value="1-3-months">1 – 3 months</option>
-                  <option value="3-6-months">3 – 6 months</option>
-                  <option value="flexible">Flexible</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="it-description">Project / Service Description <span class="required">*</span></label>
-              <textarea id="it-description" name="project_description" class="form-control" rows="4"
-                placeholder="Describe what you need as clearly as possible. Include any existing systems, technologies, or constraints we should know about."></textarea>
-            </div>
-          </div><!-- /block-it -->
-
-          <!-- ═══════════════════════════════════════════
-               BLOCK G — PROGRAMME SELECTION
-               Shown for: Kids, Teens, University, Adult, Career
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-programme" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-mortarboard-fill"></i> Programme &amp; Schedule</div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="prog-interest">Programme of Interest <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="prog-interest" name="programme_interest" class="form-select">
-                    <option value="">— Select —</option>
-                    <!-- Populated dynamically by JS based on category -->
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="prog-start">When would you like to start? <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="prog-start" name="preferred_start" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="next-cohort">Next available cohort</option>
-                    <option value="1-month">Within 1 month</option>
-                    <option value="1-3-months">1 – 3 months</option>
-                    <option value="flexible">Flexible</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="prog-schedule">Preferred Schedule <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="prog-schedule" name="preferred_schedule" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="weekday-morning">Weekday Morning</option>
-                    <option value="weekday-afternoon">Weekday Afternoon</option>
-                    <option value="weekday-evening">Weekday Evening</option>
-                    <option value="saturday">Saturday</option>
-                    <option value="sunday">Sunday</option>
-                    <option value="flexible">Flexible / Any</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="prog-mode">Preferred Learning Mode <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="prog-mode" name="learning_mode" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="in-person">In-Person (Ashaley Botwe, Accra)</option>
-                    <option value="online">Online / Remote</option>
-                    <option value="hybrid">Hybrid (mix of both)</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div><!-- /block-programme -->
-
-          <!-- ═══════════════════════════════════════════
-               BLOCK H — PAYMENT PREFERENCE
-               Shown for all except IT Services
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-payment" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-credit-card-fill"></i> Payment Preference</div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="pay-method">Preferred Payment Method <span class="required">*</span></label>
-                <div class="form-select-wrapper">
-                  <select id="pay-method" name="payment_method" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="momo-mtn">MTN Mobile Money</option>
-                    <option value="momo-vodafone">Vodafone Cash</option>
-                    <option value="momo-airteltigo">AirtelTigo Money</option>
-                    <option value="bank-transfer">Bank Transfer</option>
-                    <option value="cash">Cash (at our office)</option>
-                    <option value="card">Debit / Credit Card</option>
-                    <option value="discuss">Discuss with admin</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="pay-plan">Payment Plan</label>
-                <div class="form-select-wrapper">
-                  <select id="pay-plan" name="payment_plan" class="form-select">
-                    <option value="">— Select —</option>
-                    <option value="full">Full payment upfront</option>
-                    <option value="monthly">Monthly instalments</option>
-                    <option value="termly">Termly (per 3 months)</option>
-                    <option value="discuss">Discuss with admin</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="pay-sponsor">Is this self-funded or sponsored?</label>
-              <div class="form-select-wrapper">
-                <select id="pay-sponsor" name="funding_type" class="form-select">
-                  <option value="">— Select —</option>
-                  <option value="self">Self-funded</option>
-                  <option value="parent-guardian">Parent / Guardian</option>
-                  <option value="employer">Employer-sponsored</option>
-                  <option value="scholarship">Scholarship / Grant</option>
-                  <option value="ngo">NGO / Organisation</option>
-                </select>
-              </div>
-            </div>
-          </div><!-- /block-payment -->
-
-          <!-- ═══════════════════════════════════════════
-               BLOCK I — COMMON FIELDS (all categories)
-               ═══════════════════════════════════════════ -->
-          <div class="reg-block" id="block-common" style="display:none">
-            <div class="reg-block-title"><i class="bi bi-info-circle-fill"></i> Final Details</div>
-
-            <div class="form-group">
-              <label class="form-label" for="reg-source">How did you hear about CodeBridge Africa?</label>
-              <div class="form-select-wrapper">
-                <select id="reg-source" name="referral_source" class="form-select">
-                  <option value="">— Select —</option>
-                  <option value="facebook">Facebook</option>
-                  <option value="instagram">Instagram</option>
-                  <option value="tiktok">TikTok</option>
-                  <option value="twitter">Twitter / X</option>
-                  <option value="linkedin">LinkedIn</option>
-                  <option value="google">Google Search</option>
-                  <option value="friend-family">Friend / Family referral</option>
-                  <option value="school-teacher">School / Teacher</option>
-                  <option value="flyer">Flyer / Poster</option>
-                  <option value="radio-tv">Radio / TV</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="reg-notes">Questions, Special Requirements or Additional Notes?</label>
-              <textarea id="reg-notes" name="notes" class="form-control" rows="3"
-                placeholder="Anything else we should know — medical needs, scheduling constraints, questions about fees, etc."></textarea>
-            </div>
-
-            <!-- Consent -->
-            <div class="form-group" style="margin-bottom:1.25rem">
-              <div style="display:flex;align-items:flex-start;gap:0.5rem">
-                <input type="checkbox" id="reg-consent" name="consent"
-                       style="margin-top:4px;accent-color:var(--color-primary);flex-shrink:0;width:16px;height:16px" required />
-                <label for="reg-consent" style="font-size:0.85rem;color:var(--color-text-muted);cursor:pointer">
-                  I agree to CodeBridge Africa's <a href="pages/privacy.html">Privacy Policy</a>
-                  and consent to being contacted about my registration.
-                  <span style="color:var(--color-primary)">*</span>
-                </label>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100 btn-lg">
-              <i class="bi bi-send-fill"></i> Submit Registration
-            </button>
-            <p id="reg-status-msg" style="margin-top:0.75rem;font-size:0.875rem;display:none;text-align:center"></p>
-          </div><!-- /block-common -->
-
-        </form><!-- /registrationForm -->
       </div><!-- /form-panel -->
 
       <!-- SIDEBAR -->
@@ -1074,7 +455,7 @@
             <a href="mailto:codebridgeafrica@gmail.com" style="color:rgba(255,255,255,0.7)">codebridgeafrica@gmail.com</a>
           </p>
         </div>
-      </div><!-- /registration-info -->
+      </div>
 
     </div><!-- /registration-wrapper -->
   </div>
