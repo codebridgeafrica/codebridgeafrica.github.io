@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description" content="CodeBridge Africa Blog — insights on coding education in Africa, tech careers, and digital transformation across Ghana and the continent." />
+  <title>Blog | CodeBridge Africa</title>
+  <link rel="icon" type="image/png" href="../images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
+    .blog-card { background: var(--color-white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card); border: 1px solid var(--color-border); display: flex; flex-direction: column; transition: all var(--transition-base); }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .blog-card-thumb { height: 180px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .blog-card-thumb i { font-size: 4.5rem; opacity: .25; color: #fff; }
+    .blog-tag { position: absolute; top: 1rem; left: 1rem; background: rgba(255,255,255,.95); color: var(--color-navy); font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: .2rem .7rem; border-radius: 100px; }
+    .blog-card-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+    .blog-meta { display: flex; align-items: center; gap: .75rem; font-size: .78rem; color: var(--color-text-muted); margin-bottom: .75rem; flex-wrap: wrap; }
+    .blog-meta i { color: var(--color-primary); }
+    .blog-card-body h3 { font-size: 1.05rem; margin-bottom: .6rem; line-height: 1.35; }
+    .blog-card-body h3 a { color: var(--color-navy); text-decoration: none; }
+    .blog-card-body h3 a:hover { color: var(--color-primary); }
+    .blog-card-body p { font-size: .875rem; margin-bottom: 1.25rem; flex-grow: 1; }
+    .blog-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--color-border); }
+    .author-chip { display: flex; align-items: center; gap: .5rem; font-size: .78rem; color: var(--color-text-muted); }
+    .author-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--color-navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .68rem; font-weight: 700; flex-shrink: 0; font-family: var(--font-display); }
+    .featured-post { background: var(--color-white); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 1px solid var(--color-border); overflow: hidden; display: grid; grid-template-columns: 1fr 1.2fr; margin-bottom: 3rem; }
+    .featured-thumb { min-height: 320px; display: flex; align-items: center; justify-content: center; position: relative; }
+    .featured-thumb i { font-size: 7rem; opacity: .2; color: #fff; }
+    .featured-body { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+    @media (max-width: 768px) { .featured-post { grid-template-columns: 1fr; } .featured-thumb { min-height: 200px; } }
+  </style>
+</head>
+<body>
+<div id="site-navbar"></div>
+
+<section class="page-hero-sm">
+  <div class="container">
+    <ul class="breadcrumb"><li><a href="../index.html">Home</a></li><li>Blog</li></ul>
+    <h1>Insights &amp; Ideas</h1>
+    <p>Perspectives on coding education in Africa, tech careers, and building the digital future — from the CodeBridge Africa team.</p>
+  </div>
+</section>
+<div class="kente-bar"></div>
+
+<section class="section bg-light">
+  <div class="container">
+
+    <!-- FEATURED POST -->
+    <div class="featured-post reveal">
+      <div class="featured-thumb" style="background:linear-gradient(135deg,var(--color-navy) 0%,#0e1e35 100%)">
+        <i class="bi bi-globe-africa"></i>
+        <span style="position:absolute;top:1.25rem;left:1.25rem;background:var(--color-primary);color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .85rem;border-radius:100px">Featured</span>
+      </div>
+      <div class="featured-body">
+        <div class="blog-meta">
+          <span><i class="bi bi-calendar3"></i> March 2025</span>
+          <span><i class="bi bi-clock"></i> 6 min read</span>
+          <span style="background:rgba(232,93,26,.1);color:var(--color-primary);padding:.15rem .6rem;border-radius:100px;font-weight:600">Education</span>
+        </div>
+        <h2 style="font-size:1.5rem;margin-bottom:1rem;line-height:1.3">Africa's Tech Talent Gap: Why Coding Schools Like Ours Are Part of the Solution</h2>
+        <p style="margin-bottom:1.5rem">By 2030, Africa will face a shortage of over 2 million skilled tech workers. Universities alone cannot close this gap fast enough. Here's how practical coding education — from kids to adults — is the fastest bridge between where we are and where we need to be.</p>
+        <div class="blog-card-footer" style="border:none;padding:0">
+          <div class="author-chip">
+            <div class="author-avatar">CA</div>
+            <span>CodeBridge Africa Team</span>
+          </div>
+          <a href="https://www.ifc.org/en/stories/2023/africas-tech-talent-gap" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right-circle"></i> Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG GRID -->
+    <div class="blog-grid">
+
+      <!-- Post 1 -->
+      <div class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,var(--color-teal),#004d45)">
+          <i class="bi bi-code-slash"></i>
+          <span class="blog-tag">Coding Education</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span><i class="bi bi-calendar3"></i> Feb 2025</span><span><i class="bi bi-clock"></i> 5 min</span></div>
+          <h3><a href="https://techcabal.com/2024/06/06/coding-education-africa-future/" target="_blank" rel="noopener">Why Every African Child Needs to Learn to Code — Not Just Use Technology</a></h3>
+          <p>There's a difference between being a user of technology and a creator of it. Across Africa, we need a generation of builders, not just consumers — and it starts in primary school.</p>
+          <div class="blog-card-footer">
+            <div class="author-chip"><div class="author-avatar">TC</div><span>TechCabal</span></div>
+            <a href="https://techcabal.com/2024/06/06/coding-education-africa-future/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Read <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,var(--color-primary),#8B3510)">
+          <i class="bi bi-bar-chart-fill"></i>
+          <span class="blog-tag">Careers</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span><i class="bi bi-calendar3"></i> Jan 2025</span><span><i class="bi bi-clock"></i> 7 min</span></div>
+          <h3><a href="https://techcabal.com/2024/03/ghana-tech-ecosystem-growth/" target="_blank" rel="noopener">Ghana's Tech Ecosystem Is Growing Fast — Here's How to Position Yourself</a></h3>
+          <p>From Accra's growing startup scene to remote tech work opportunities, Ghana's digital economy is creating jobs at every skill level. What you need to know to get in now.</p>
+          <div class="blog-card-footer">
+            <div class="author-chip"><div class="author-avatar">TC</div><span>TechCabal</span></div>
+            <a href="https://techcabal.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Read <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="blog-card reveal reveal-delay-3">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,var(--color-green),#1B5E20)">
+          <i class="bi bi-person-workspace"></i>
+          <span class="blog-tag">Career Switch</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span><i class="bi bi-calendar3"></i> Dec 2024</span><span><i class="bi bi-clock"></i> 6 min</span></div>
+          <h3><a href="https://www.bbc.com/worklife/article/20230918-the-rise-of-the-career-switcher" target="_blank" rel="noopener">The Rise of the Career Switcher: Why More African Professionals Are Moving Into Tech</a></h3>
+          <p>Teachers, accountants, nurses, and marketers across Africa are making the jump into tech roles. What's driving this wave — and what does it take to make the transition successfully?</p>
+          <div class="blog-card-footer">
+            <div class="author-chip"><div class="author-avatar">BB</div><span>BBC Worklife</span></div>
+            <a href="https://www.bbc.com/worklife/article/20230918-the-rise-of-the-career-switcher" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Read <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,#b38600,#6d4c00)">
+          <i class="bi bi-cpu-fill"></i>
+          <span class="blog-tag">AI &amp; Africa</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span><i class="bi bi-calendar3"></i> Nov 2024</span><span><i class="bi bi-clock"></i> 8 min</span></div>
+          <h3><a href="https://www.weforum.org/agenda/2024/01/ai-africa-opportunities-challenges/" target="_blank" rel="noopener">AI Is Coming to Africa — Will African Workers Be Ready?</a></h3>
+          <p>Artificial intelligence will transform every industry. The question for Africa isn't whether AI will arrive — it's whether Africans will be building it or just affected by it. The answer starts with education.</p>
+          <div class="blog-card-footer">
+            <div class="author-chip"><div class="author-avatar">WE</div><span>World Economic Forum</span></div>
+            <a href="https://www.weforum.org/agenda/2024/01/ai-africa-opportunities-challenges/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Read <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,var(--color-navy),#0e1e35)">
+          <i class="bi bi-phone-fill"></i>
+          <span class="blog-tag">Digital Economy</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span><i class="bi bi-calendar3"></i> Oct 2024</span><span><i class="bi bi-clock"></i> 5 min</span></div>
+          <h3><a href="https://www.myjoyonline.com/ghana-digital-economy-growth-2024/" target="_blank" rel="noopener">Ghana's Digital Economy: The Sectors Creating the Most Tech Jobs Right Now</a></h3>
+          <p>Fintech, agritech, health tech, and e-commerce are all growing rapidly in Ghana. We break down which sectors are hiring, what skills they need, and how to get your foot in the door.</p>
+          <div class="blog-card-footer">
+            <div class="author-chip"><div class="author-avatar">MJ</div><span>MyJoyOnline</span></div>
+            <a href="https://www.myjoyonline.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Read <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 6 -->
+      <div class="blog-card reveal reveal-delay-3">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,var(--color-teal),var(--color-green))">
+          <i class="bi bi-stars"></i>
+          <span class="blog-tag">Kids &amp; STEM</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-meta"><span><i class="bi bi-calendar3"></i> Sep 2024</span><span><i class="bi bi-clock"></i> 4 min</span></div>
+          <h3><a href="https://www.unicef.org/ghana/stories/why-stem-girls-ghana-matters" target="_blank" rel="noopener">Why Getting Girls Into STEM Early Changes Everything — Evidence from Ghana</a></h3>
+          <p>Research consistently shows that girls who engage with STEM subjects before age 12 are far more likely to pursue tech careers. Here's what the data says, and what we're doing about it at CodeBridge Africa.</p>
+          <div class="blog-card-footer">
+            <div class="author-chip"><div class="author-avatar">UN</div><span>UNICEF Ghana</span></div>
+            <a href="https://www.unicef.org/ghana" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Read <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NEWSLETTER CTA -->
+    <div style="background:var(--color-navy);border-radius:var(--radius-xl);padding:2.5rem;text-align:center;margin-top:3rem" class="reveal">
+      <i class="bi bi-envelope-heart" style="font-size:2.5rem;color:var(--color-primary);display:block;margin-bottom:1rem"></i>
+      <h3 style="color:#fff;margin-bottom:.5rem">Never Miss a Post</h3>
+      <p style="color:rgba(255,255,255,.65);max-width:480px;margin:0 auto 1.5rem">Subscribe to the CodeBridge Africa newsletter for the latest articles, course updates, and opportunities.</p>
+      <form id="blogNewsletterForm" style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;max-width:440px;margin:0 auto">
+        <input type="email" name="email" placeholder="your@email.com" required
+               style="flex:1;min-width:200px;padding:.65rem 1rem;border-radius:var(--radius-md);border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;font-size:.9rem;font-family:var(--font-body);outline:none" />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  const f = document.getElementById('blogNewsletterForm');
+  if (f) f.addEventListener('submit', e => {
+    e.preventDefault();
+    if (typeof showToast === 'function') showToast('Thanks! We\'ll keep you in the loop.', 'success');
+    f.reset();
+  });
+</script>
+</body>
+</html>

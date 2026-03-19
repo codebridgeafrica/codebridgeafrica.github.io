@@ -1,0 +1,13 @@
+{
+  "_comment": "CodeBridge Africa - PHP Dependencies. Run: composer install",
+  "name": "codebridge-africa/website",
+  "description": "CodeBridge Africa website PHP backend for email handling",
+  "require": {
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "CodeBridge\\": "src/"
+    }
+  }
+}

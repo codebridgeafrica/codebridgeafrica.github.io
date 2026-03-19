@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description" content="CodeBridge Africa Student Portal — Coming Soon." />
+  <title>Student Portal | CodeBridge Africa</title>
+  <link rel="icon" type="image/png" href="../images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .portal-wrap { min-height:calc(100vh - 140px); display:grid; grid-template-columns:1fr 1fr; }
+    .portal-brand { background:linear-gradient(160deg,var(--color-navy) 0%,#1e3a5f 100%); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:3rem; text-align:center; }
+    .portal-brand img { height:65px; margin-bottom:2rem; }
+    .portal-brand h2 { color:#fff; margin-bottom:.75rem; }
+    .portal-brand p { color:rgba(255,255,255,.65); max-width:300px; }
+    .portal-right { background:var(--color-bg); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:3rem; position:relative; }
+    .portal-form-card { width:100%; max-width:400px; background:var(--color-white); border-radius:var(--radius-xl); padding:2.5rem; box-shadow:var(--shadow-lg); border:1px solid var(--color-border); position:relative; }
+    /* Coming-soon overlay */
+    .portal-overlay { position:absolute; inset:0; background:rgba(26,43,74,.92); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); border-radius:var(--radius-xl); z-index:10; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1.25rem; padding:2rem; text-align:center; }
+    .portal-overlay .badge-cs { background:var(--color-primary); color:#fff; font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.3rem 1rem; border-radius:100px; display:inline-block; margin-bottom:.25rem; }
+    .portal-overlay h3 { color:#fff; font-size:1.4rem; margin:0; }
+    .portal-overlay p { color:rgba(255,255,255,.7); font-size:.9rem; margin:0; max-width:280px; }
+    .notify-form { display:flex; gap:.5rem; width:100%; max-width:320px; flex-wrap:wrap; }
+    .notify-form input { flex:1; min-width:180px; padding:.6rem 1rem; border-radius:var(--radius-md); border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.1); color:#fff; font-size:.88rem; font-family:var(--font-body); outline:none; }
+    .notify-form input::placeholder { color:rgba(255,255,255,.4); }
+    .notify-form input:focus { border-color:var(--color-primary); }
+    @media (max-width:768px) {
+      .portal-wrap { grid-template-columns:1fr; }
+      .portal-brand { padding:2rem; min-height:200px; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-navbar"></div>
+<div class="kente-bar"></div>
+
+<div class="portal-wrap">
+
+  <!-- LEFT BRAND PANEL -->
+  <div class="portal-brand">
+    <img src="../images/logo.png" alt="CodeBridge Africa" />
+    <h2>Student Portal</h2>
+    <p>Access your courses, track progress, submit assignments, and connect with your instructors.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;width:100%;max-width:300px">
+      <div style="background:rgba(255,255,255,.08);border-radius:var(--radius-md);padding:1rem;text-align:center">
+        <i class="bi bi-book-fill" style="font-size:1.5rem;color:var(--color-yellow)"></i>
+        <p style="color:rgba(255,255,255,.8);font-size:.8rem;margin:.4rem 0 0">Course Materials</p>
+      </div>
+      <div style="background:rgba(255,255,255,.08);border-radius:var(--radius-md);padding:1rem;text-align:center">
+        <i class="bi bi-bar-chart-fill" style="font-size:1.5rem;color:var(--color-primary)"></i>
+        <p style="color:rgba(255,255,255,.8);font-size:.8rem;margin:.4rem 0 0">Progress Tracking</p>
+      </div>
+      <div style="background:rgba(255,255,255,.08);border-radius:var(--radius-md);padding:1rem;text-align:center">
+        <i class="bi bi-chat-dots-fill" style="font-size:1.5rem;color:var(--color-teal)"></i>
+        <p style="color:rgba(255,255,255,.8);font-size:.8rem;margin:.4rem 0 0">Instructor Chat</p>
+      </div>
+      <div style="background:rgba(255,255,255,.08);border-radius:var(--radius-md);padding:1rem;text-align:center">
+        <i class="bi bi-award-fill" style="font-size:1.5rem;color:var(--color-green)"></i>
+        <p style="color:rgba(255,255,255,.8);font-size:.8rem;margin:.4rem 0 0">Certificates</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Login form (with coming-soon overlay) -->
+  <div class="portal-right">
+    <div class="portal-form-card">
+
+      <!-- COMING SOON OVERLAY (remove this entire div once portal is live) -->
+      <div class="portal-overlay">
+        <span class="badge-cs"><i class="bi bi-tools"></i> Under Construction</span>
+        <h3>Coming Soon</h3>
+        <p>We're building something great. The student portal will launch alongside our first cohort.</p>
+        <form id="notifyForm" style="width:100%">
+          <div class="notify-form">
+            <input type="email" name="email" placeholder="Get notified by email" required />
+            <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-bell-fill"></i> Notify Me</button>
+          </div>
+          <p id="notifyMsg" style="font-size:.8rem;color:var(--color-yellow);margin-top:.5rem;display:none">
+            <i class="bi bi-check-circle-fill"></i> You're on the list!
+          </p>
+        </form>
+        <a href="contact.html" style="color:rgba(255,255,255,.6);font-size:.82rem;text-decoration:underline">Have a question? Contact us</a>
+      </div>
+
+      <!-- The form beneath the overlay (will be visible when overlay is removed) -->
+      <div style="margin-bottom:1.5rem;text-align:center">
+        <h3 style="color:var(--color-navy);margin-bottom:.25rem">Sign In</h3>
+        <p style="font-size:.875rem">Access your student dashboard</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="p-email">Email Address</label>
+        <input type="email" id="p-email" class="form-control" placeholder="student@example.com" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="p-pass">Password</label>
+        <input type="password" id="p-pass" class="form-control" placeholder="••••••••" />
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:1.25rem">
+        <a href="#" style="font-size:.82rem;color:var(--color-primary)">Forgot password?</a>
+      </div>
+      <button class="btn btn-primary w-100"><i class="bi bi-box-arrow-in-right"></i> Sign In</button>
+      <p style="text-align:center;font-size:.82rem;margin-top:1.25rem">
+        Not enrolled yet? <a href="../index.html#registration">Enrol now</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  const nf = document.getElementById('notifyForm');
+  if (nf) {
+    nf.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = nf.querySelector('[name=email]').value;
+      const msg = document.getElementById('notifyMsg');
+      try {
+        await fetch('https://formspree.io/f/xpqybqqg', {
+          method:'POST', body:JSON.stringify({email, _subject:'Portal Notify - CodeBridge Africa'}),
+          headers:{'Content-Type':'application/json',Accept:'application/json'}
+        });
+      } catch {}
+      msg.style.display = 'block';
+      nf.querySelector('input').value = '';
+    });
+  }
+</script>
+</body>
+</html>

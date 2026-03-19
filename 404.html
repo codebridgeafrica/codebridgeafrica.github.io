@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ============================================================================
+  CodeBridge Africa — 404 Not Found (404.html)
+  GitHub Pages automatically uses this file for missing pages.
+  Place this at the ROOT of your repository (not inside pages/).
+  ============================================================================
+-->
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Page Not Found | CodeBridge Africa</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="site-navbar"></div>
+
+<div class="error-page">
+  <div class="container text-center">
+    <div class="error-code">404</div>
+    <h2 style="font-size:2rem;margin:.75rem 0;color:var(--color-navy)">Page Not Found</h2>
+    <p style="max-width:460px;margin:0 auto 2rem;color:var(--color-text-muted)">
+      Looks like this page got lost on the bridge. Don't worry — the rest of our site is just a click away.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="index.html" class="btn btn-primary btn-lg">
+        <i class="bi bi-house-fill"></i> Back to Home
+      </a>
+      <a href="pages/courses.html" class="btn btn-secondary btn-lg">
+        <i class="bi bi-book-fill"></i> Browse Courses
+      </a>
+      <a href="pages/contact.html" class="btn btn-outline-white btn-lg" style="color:var(--color-navy);border-color:var(--color-navy)">
+        <i class="bi bi-envelope-fill"></i> Contact Us
+      </a>
+    </div>
+    <!-- Countdown redirect -->
+    <p style="margin-top:2.5rem;font-size:.875rem;color:var(--color-text-muted)">
+      Redirecting to home in <span id="countdown" style="font-weight:700;color:var(--color-primary)">10</span> seconds...
+    </p>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+  /* Countdown redirect to homepage */
+  let seconds = 10;
+  const countEl = document.getElementById('countdown');
+  const timer = setInterval(() => {
+    seconds--;
+    if (countEl) countEl.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      window.location.href = 'index.html';
+    }
+  }, 1000);
+</script>
+</body>
+</html>
