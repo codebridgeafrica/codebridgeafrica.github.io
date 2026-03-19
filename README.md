@@ -5,6 +5,7 @@
 **Stack:** Static HTML · CSS · Vanilla JS · Bootstrap Icons · Google Fonts  
 **Compatible with:** GitHub Pages (free) — no server required
 
+---
 
 ## Quick Deploy to GitHub Pages
 
@@ -13,11 +14,13 @@
 3. Go to **Settings → Pages → Source → Deploy from branch → main / (root)**
 4. Your site will be live at `https://codebridgeafrica.github.io`
 
+---
 
 ## THINGS YOU MUST CONFIGURE BEFORE GOING LIVE
 
 The following items are **placeholders** that need your real data. Each one shows the exact file and what to change.
 
+---
 
 ### 1. FORMSPREE — Receive contact form emails
 
@@ -39,6 +42,7 @@ Forms won't work until you set this up.
 **File:** `js/components.js` — inside the newsletter form handler  
 **File:** `pages/portal.html` — inside the `<script>` at the bottom  
 
+---
 
 ### 2. GOOGLE FORM — Store registrations in Google Sheets
 
@@ -64,6 +68,7 @@ The registration form already posts to your Google Form. However, you need to **
 
 **Note:** The form currently posts in `no-cors` mode, which works but doesn't give a success/failure response. The Formspree submission provides the confirmation message.
 
+---
 
 ### 3. GOOGLE MAPS — Add your map embed
 
@@ -75,6 +80,7 @@ The registration form already posts to your Google Form. However, you need to **
 3. Click **Share → Embed a map → Copy HTML**
 4. Replace the placeholder div with your `<iframe>` embed code
 
+---
 
 ### 4. YOUTUBE — Update URL when ready
 
@@ -82,6 +88,7 @@ The registration form already posts to your Google Form. However, you need to **
 Find: `<a href="#" class="social-link" aria-label="YouTube">`  
 Replace `#` with your YouTube channel URL (e.g. `https://www.youtube.com/@codebridgeafrica`)
 
+---
 
 ### 5. GITHUB — Update URL when ready
 
@@ -89,6 +96,7 @@ Replace `#` with your YouTube channel URL (e.g. `https://www.youtube.com/@codebr
 Find: `<a href="#" class="social-link" aria-label="GitHub">`  
 Replace `#` with your GitHub URL (e.g. `https://github.com/codebridgeafrica`)
 
+---
 
 ### 6. PHP EMAIL (optional — for non-static hosting)
 
@@ -108,12 +116,14 @@ If you later move to a PHP-capable host (Bluehost, Hostinger, etc.) you can use 
 
 **Note:** This is NOT needed for GitHub Pages. Only set this up if you move to a different host.
 
+---
 
 ### 7. STUDENT PORTAL — Remove Coming-Soon overlay when ready
 
 **File:** `pages/portal.html`  
 When your portal backend is ready, delete the entire `<div class="portal-overlay">...</div>` block.
 
+---
 
 ### 8. Student Project Placeholder Links
 
@@ -121,6 +131,7 @@ When students have real project links, update the `href="#"` on each project car
 
 **File:** `pages/projects.html` — find `href="#"` buttons and replace with real project/GitHub URLs.
 
+---
 
 ## FILE STRUCTURE
 
@@ -169,6 +180,8 @@ codebridge-africa/
     └── composer.json
 ```
 
+---
+
 ## BRAND COLOURS
 
 | Colour       | Hex       | Usage                          |
@@ -181,6 +194,7 @@ codebridge-africa/
 
 **Fonts:** Montserrat (headings) · Open Sans (body) · JetBrains Mono (code accents)
 
+---
 
 ## SOCIAL MEDIA LINKS (currently configured)
 
@@ -194,6 +208,7 @@ codebridge-africa/
 | YouTube    | **PLACEHOLDER — update in `js/components.js`**        |
 | GitHub     | **PLACEHOLDER — update in `js/components.js`**        |
 
+---
 
 ## CONTACT DETAILS (currently configured)
 
@@ -204,6 +219,7 @@ codebridge-africa/
 | Email       | codebridgeafrica@gmail.com       |
 | Address     | Ashaley Botwe, Accra, Ghana      |
 
+---
 
 ## SUPPORT
 

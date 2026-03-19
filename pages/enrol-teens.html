@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Enrol — Teen Techies (Ages 13–19) | CodeBridge Africa</title>
+  <link rel="icon" type="image/png" href="../images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div id="site-navbar"></div>
+<section class="page-hero-sm" style="border-left:6px solid var(--color-teal)">
+  <div class="container">
+    <ul class="breadcrumb"><li><a href="../index.html">Home</a></li><li>Enrol</li><li>Teen Techies (Ages 13–19)</li></ul>
+    <span class="card-age-badge badge-teal" style="margin-bottom:.75rem">Ages 13 – 19</span>
+    <h1>Enrol — Teen Techies (Ages 13–19)</h1>
+    <p>Fill in the form below. We will confirm your place and send payment details soon.</p>
+  </div>
+</section>
+<div class="kente-bar"></div>
+<section class="section bg-light">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start">
+      <div style="background:var(--color-white);border-radius:var(--radius-xl);padding:2.5rem;box-shadow:var(--shadow-card);border:1px solid var(--color-border)">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--color-border)">
+          <div style="width:48px;height:48px;background:rgba(0,0,0,.06);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="bi bi-lightning-charge" style="color:var(--color-teal);font-size:1.4rem"></i></div>
+          <div><h3 style="margin:0;font-size:1.1rem">Teen Techies (Ages 13–19) — Registration</h3><p style="margin:0;font-size:.82rem;color:var(--color-text-muted)">Fields marked <span style="color:var(--color-primary)">*</span> are required</p></div>
+        </div>
+        <form id="enrolForm" novalidate>          <input type="hidden" name="_replyto" value="codebridgeafrica@gmail.com" />
+          <input type="hidden" name="_cc" value="pvayittah@gmail.com" />
+          <input type="hidden" name="_subject" value="Teens Enrolment — CodeBridge Africa" />
+          <input type="hidden" name="form_type" value="Teen Techies Enrolment (Ages 13–19)" />
+          <div class="reg-block-title" style="margin:1.75rem 0 1rem"><i class="bi bi-person-badge-fill"></i> Student Details</div>
+          <div class="form-row">
+          <div class="form-group">
+              <label class="form-label" for="first_name">First Name <span class="required">*</span></label>
+              <input type="text" id="first_name" name="first_name" class="form-control" placeholder="e.g. Kofi" required />
+            </div>
+          <div class="form-group">
+              <label class="form-label" for="last_name">Last Name <span class="required">*</span></label>
+              <input type="text" id="last_name" name="last_name" class="form-control" placeholder="e.g. Mensah" required />
+            </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group">
+              <label class="form-label" for="dob">Date of Birth <span class="required">*</span></label>
+              <input type="date" id="dob" name="date_of_birth" class="form-control" placeholder="" required />
+            </div>
+          <div class="form-group">
+              <label class="form-label" for="gender">Gender</label>
+              <div class="form-select-wrapper"><select id="gender" name="gender" class="form-select"><option value="">— Select —</option><option>Male</option><option>Female</option><option>Prefer not to say</option></select></div>
+            </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group">
+              <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="student@example.com" required />
+            </div>
+          <div class="form-group">
+              <label class="form-label" for="phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="+233 XX XXX XXXX" required />
+            </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group">
+              <label class="form-label" for="comms">Preferred Communication <span class="required">*</span></label>
+              <div class="form-select-wrapper"><select id="comms" name="preferred_comms" class="form-select" required><option value="">— Select —</option><option>WhatsApp</option><option>Phone Call</option><option>Email</option><option>SMS</option></select></div>
+            </div>
+          <div class="form-group">
+              <label class="form-label" for="location">City / Town <span class="required">*</span></label>
+              <input type="text" id="location" name="location" class="form-control" placeholder="e.g. Accra" required />
+            </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group">
+              <label class="form-label" for="current_school">Current School <span class="required">*</span></label>
+              <input type="text" id="current_school" name="current_school" class="form-control" placeholder="e.g. Accra Academy" required />
+            </div>
+          <div class="form-group">
+              <label class="form-label" for="school_year">School Year / Form</label>
+              <input type="text" id="school_year" name="school_year" class="form-control" placeholder="e.g. Form 2" />
+            </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group">
+              <label class="form-label" for="prior_coding">Prior Coding Experience?</label>
+              <div class="form-select-wrapper"><select id="prior_coding" name="prior_coding" class="form-select"><option value="">— Select —</option><option>None</option><option>A little Scratch / block coding</option><option>Some HTML/CSS</option><option>Basic Python</option><option>Comfortable with multiple languages</option></select></div>
+            </div>
+          <div class="form-group">
+              <label class="form-label" for="device">Device Available?</label>
+              <div class="form-select-wrapper"><select id="device" name="device_available" class="form-select"><option value="">— Select —</option><option>Yes — Laptop / PC</option><option>Yes — Tablet</option><option>No device available</option><option>Shared / Borrowed</option></select></div>
+            </div>
+          </div>
+          <div class="reg-block-title" style="margin:1.75rem 0 1rem"><i class="bi bi-person-fill"></i> Parent / Guardian Contact</div>
+          <div class="form-row">
+          <div class="form-group">
+              <label class="form-label" for="parent_name">Parent / Guardian Name <span class="required">*</span></label>
+              <input type="text" id="parent_name" name="parent_name" class="form-control" placeholder="e.g. Ama Mensah" required />
+            </div>
+          <div class="form-group">
+              <label class="form-label" for="parent_phone">Parent Phone <span class="required">*</span></label>
+              <input type="tel" id="parent_phone" name="parent_phone" class="form-control" placeholder="+233 XX XXX XXXX" required />
+            </div>
+          </div>
+          <div class="reg-block-title" style="margin:1.75rem 0 1rem"><i class="bi bi-credit-card-fill"></i> Payment Preference</div>
+          <div class="form-row">
+          <div class="form-group">
+              <label class="form-label" for="payment_method">Payment Method <span class="required">*</span></label>
+              <div class="form-select-wrapper"><select id="payment_method" name="payment_method" class="form-select" required><option value="">— Select —</option><option>MTN Mobile Money</option><option>Vodafone Cash</option><option>AirtelTigo Money</option><option>Bank Transfer</option><option>Cash (at our office)</option><option>Discuss with admin</option></select></div>
+            </div>
+          <div class="form-group">
+              <label class="form-label" for="payment_plan">Payment Plan</label>
+              <div class="form-select-wrapper"><select id="payment_plan" name="payment_plan" class="form-select"><option value="">— Select —</option><option>Monthly instalments</option><option>Full payment upfront</option><option>Termly (per 3 months)</option><option>Discuss with admin</option></select></div>
+            </div>
+          </div>
+          <div class="reg-block-title" style="margin:1.75rem 0 1rem"><i class="bi bi-info-circle-fill"></i> Final Details</div>
+          <div class="form-group">
+            <label class="form-label" for="referral">How did you hear about us?</label>
+            <div class="form-select-wrapper"><select id="referral" name="referral_source" class="form-select"><option value="">— Select —</option><option>Facebook</option><option>Instagram</option><option>TikTok</option><option>Twitter / X</option><option>Google Search</option><option>Friend / Family</option><option>School / Teacher</option><option>Flyer / Poster</option><option>Other</option></select></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="notes">Questions or Additional Notes?</label>
+            <textarea id="notes" name="notes" class="form-control" rows="3" placeholder="Anything else we should know..."></textarea>
+          </div>
+          <div class="form-group" style="margin-bottom:1.5rem">
+            <div style="display:flex;align-items:flex-start;gap:.5rem">
+              <input type="checkbox" id="consent" name="consent" style="margin-top:4px;accent-color:var(--color-primary);width:16px;height:16px;flex-shrink:0" required />
+              <label for="consent" style="font-size:.85rem;color:var(--color-text-muted);cursor:pointer">I agree to CodeBridge Africa's <a href="privacy.html">Privacy Policy</a> and consent to being contacted about this registration. <span style="color:var(--color-primary)">*</span></label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 btn-lg"><i class="bi bi-send-fill"></i> Submit Enrolment</button>
+          <p id="formMsg" style="margin-top:.75rem;font-size:.875rem;display:none;text-align:center"></p>
+        </form>
+      </div>
+      <div style="position:sticky;top:90px;display:flex;flex-direction:column;gap:1.25rem">
+        <div style="background:var(--color-navy);border-radius:var(--radius-xl);padding:1.75rem;color:#fff">
+          <h4 style="color:var(--color-yellow);margin-bottom:1.25rem;font-size:.95rem"><i class="bi bi-info-circle-fill" style="margin-right:6px"></i> Programme Details</h4>
+          <div style="display:flex;flex-direction:column;gap:.9rem;font-size:.85rem">
+            <div style="display:flex;gap:.6rem"><i class="bi bi-cash-coin" style="color:var(--color-primary);flex-shrink:0;margin-top:2px"></i><span style="color:rgba(255,255,255,.8)">GHS 399 (Foundation) · GHS 549 (Levels 2–4)</span></div>
+            <div style="display:flex;gap:.6rem"><i class="bi bi-clock-fill" style="color:var(--color-primary);flex-shrink:0;margin-top:2px"></i><span style="color:rgba(255,255,255,.8)">6 months · 3 phases of 8 weeks</span></div>
+            <div style="display:flex;gap:.6rem"><i class="bi bi-people-fill" style="color:var(--color-primary);flex-shrink:0;margin-top:2px"></i><span style="color:rgba(255,255,255,.8)">Max 15 per class</span></div>
+            <div style="display:flex;gap:.6rem"><i class="bi bi-geo-alt-fill" style="color:var(--color-primary);flex-shrink:0;margin-top:2px"></i><span style="color:rgba(255,255,255,.8)">Ashaley Botwe, Accra · Online available</span></div>
+          </div>
+          <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.1)">
+            <a href="pathway-teens.html" class="btn btn-outline-white w-100 btn-sm"><i class="bi bi-arrow-left"></i> View Teens Pathway</a>
+          </div>
+        </div>
+        <div style="background:var(--color-bg);border-radius:var(--radius-lg);padding:1.25rem;border:1px solid var(--color-border);font-size:.85rem">
+          <h4 style="color:var(--color-navy);margin-bottom:.75rem;font-size:.9rem"><i class="bi bi-question-circle-fill" style="color:var(--color-primary);margin-right:6px"></i> Need Help?</h4>
+          <p style="margin-bottom:.75rem;color:var(--color-text-muted)">Mon–Fri 8am–8pm · Sat–Sun 11am–8pm</p>
+          <a href="https://wa.me/233245676676" target="_blank" rel="noopener" class="btn btn-green w-100 btn-sm mb-2"><i class="bi bi-whatsapp"></i> WhatsApp Us</a>
+          <a href="contact.html" class="btn btn-secondary w-100 btn-sm"><i class="bi bi-envelope"></i> Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="site-footer"></div>
+<button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>
+(function() {
+  const FORMSPREE_ID = 'mbdzwwvv';
+  const GF_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe0g_jMlABIXKLTShF6y3O96SOsfvuNUFzOcst6jdhhTEj38A/formResponse';
+  const form = document.getElementById('enrolForm');
+  const msg  = document.getElementById('formMsg');
+  if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('[type=submit]');
+    const orig = btn.innerHTML;
+    const consent = form.querySelector('#consent');
+    if (consent && !consent.checked) {
+      if (typeof showToast==='function') showToast('Please accept the Privacy Policy to continue.','error');
+      return;
+    }
+    btn.disabled=true; btn.innerHTML='<i class="bi bi-hourglass-split"></i> Submitting…';
+    const fd = new FormData(form);
+    const v  = (n) => (fd.get(n)||'');
+    try {
+      const res = await fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',body:fd,headers:{Accept:'application/json'}});
+      if (!res.ok) throw new Error();
+      const gf = new URLSearchParams();
+      gf.set('entry.132964072',  (v('first_name')+' '+v('last_name')).trim());
+      gf.set('entry.1618315586', v('date_of_birth'));
+      gf.set('entry.278741856',  v('gender'));
+      gf.set('entry.300398114',  v('current_school'));
+      gf.set('entry.1282679937', v('school_year'));
+      gf.set('entry.1094419977', v('prior_coding'));
+      gf.set('entry.1106174976', v('device_available'));
+      gf.set('entry.683288859',  v('parent_name'));
+      gf.set('entry.575507188',  v('parent_phone'));
+      gf.set('entry.1732029878', v('parent_phone'));
+      gf.set('entry.1132726668', v('email'));
+      gf.set('entry.2132729196', v('preferred_comms'));
+      gf.set('entry.645654444',  v('location'));
+      gf.set('entry.501776763',  v('payment_method'));
+      gf.set('entry.851783978',  v('payment_plan'));
+      gf.set('entry.1773125758', v('referral_source'));
+      gf.set('entry.1367669375', v('notes'));
+      await fetch(GF_URL,{method:'POST',body:gf.toString(),mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'}});
+      msg.style.display='block'; msg.style.color='var(--color-green)';
+      msg.innerHTML='<i class="bi bi-check-circle-fill"></i> Submitted! We will be in touch soon.';
+      form.reset();
+      if (typeof showToast==='function') showToast('Submitted successfully!','success',7000);
+    } catch(err) {
+      msg.style.display='block'; msg.style.color='var(--color-primary)';
+      msg.innerHTML='<i class="bi bi-exclamation-circle-fill"></i> Could not submit. Please WhatsApp us on <a href="https://wa.me/233245676676">+233 245 676 676</a> or email <a href="mailto:codebridgeafrica@gmail.com">codebridgeafrica@gmail.com</a>';
+    }
+    btn.disabled=false; btn.innerHTML=orig;
+  });
+})();
+</script>
+</body>
+</html>

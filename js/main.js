@@ -416,7 +416,7 @@ function clearFieldFeedback(field) {
 
       try {
         // ── Formspree submission ──────────────────────────────────────────
-        // Replace YOUR_FORMSPREE_REGISTRATION_ID with your real Formspree form ID.
+        // Replace mvzwlgng with your real Formspree form ID.
         // Sign up at https://formspree.io → create a form → copy the ID.
         const FORMSPREE_ID = 'mvzwlgng';
 
@@ -609,7 +609,7 @@ function clearFieldFeedback(field) {
     try {
       /*
        * FORMSPREE CONTACT FORM
-       * Replace 'YOUR_FORMSPREE_CONTACT_ID' with your contact form ID from Formspree.
+       * Replace 'xpqybqqg' with your contact form ID from Formspree.
        * This is a different form from registration so you can handle them separately.
        */
       const response = await fetch('https://formspree.io/f/xpqybqqg', {

@@ -56,8 +56,8 @@ const CONFIG = {
   // 1. Sign up free at https://formspree.io
   // 2. Create a form, copy the ID (e.g. "xpwzknlj")
   // 3. Paste it below replacing the placeholder strings
-  formspreeContactId:      'YOUR_FORMSPREE_CONTACT_ID',      // contact + newsletter
-  formspreeRegistrationId: 'YOUR_FORMSPREE_REGISTRATION_ID', // enrolment form
+  formspreeContactId:      'xpqybqqg',      // contact + newsletter
+  formspreeRegistrationId: 'mvzwlgng', // enrolment form
 
 };
 
@@ -377,8 +377,8 @@ function renderNavbar() {
                 </li>
                 <li class="dropdown-divider"></li>
                 <li>
-                  <a href="${ROOT}pages/contact.html">
-                    <i class="bi bi-chat-dots" style="color:var(--color-primary)"></i>
+                  <a href="${ROOT}pages/enrol-it-services.html">
+                    <i class="bi bi-send-fill" style="color:var(--color-primary)"></i>
                     Request a Quote
                   </a>
                 </li>
@@ -791,7 +791,7 @@ function renderFooter() {
 
     const email  = nlForm.querySelector('[name="email"]').value;
     const btn    = nlForm.querySelector('button[type="submit"]');
-    const id     = 'xpqybqqg';
+    const id     = CONFIG.formspreeContactId;
 
     // If the Formspree ID hasn't been configured yet, show a friendly message
     // rather than a confusing error, and exit early.
