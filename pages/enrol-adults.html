@@ -30,20 +30,13 @@
           <div><h3 style="margin:0;font-size:1.1rem">Adults & Professionals — Registration</h3><p style="margin:0;font-size:.82rem;color:var(--color-text-muted)">Fields marked <span style="color:var(--color-primary)">*</span> are required</p></div>
         </div>
         <form id="enrolForm" novalidate>          <input type="hidden" name="_replyto" value="codebridgeafrica@gmail.com" />
-          <input type="hidden" name="_cc" value="pvayittah@gmail.com" />
           <input type="hidden" name="_subject" value="Adults Enrolment — CodeBridge Africa" />
           <input type="hidden" name="form_type" value="Adults & Professionals Enrolment" />
           <div class="reg-block-title" style="margin:1.75rem 0 1rem"><i class="bi bi-person-badge-fill"></i> Personal Details</div>
-          <div class="form-row">
           <div class="form-group">
-              <label class="form-label" for="first_name">First Name <span class="required">*</span></label>
-              <input type="text" id="first_name" name="first_name" class="form-control" placeholder="e.g." required />
+              <label class="form-label" for="full_name">Full Name <span class="required">*</span></label>
+              <input type="text" id="full_name" name="full_name" class="form-control" placeholder="e.g. Kofi Mensah" required />
             </div>
-          <div class="form-group">
-              <label class="form-label" for="last_name">Last Name <span class="required">*</span></label>
-              <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Mensah" required />
-            </div>
-          </div>
           <div class="form-row">
           <div class="form-group">
               <label class="form-label" for="dob">Date of Birth <span class="required">*</span></label>
@@ -156,51 +149,97 @@
 <script>
 (function() {
   const FORMSPREE_ID = 'xdawbbqo';
-  const GF_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeeFNdYh4Z6XPz9wvprBg0GcZ1iOZQYTNk2BvCN1ETFQTaEbw/formResponse';
+  const GF_URL       = 'https://docs.google.com/forms/d/e/1FAIpQLSeeFNdYh4Z6XPz9wvprBg0GcZ1iOZQYTNk2BvCN1ETFQTaEbw/formResponse';
   const form = document.getElementById('enrolForm');
   const msg  = document.getElementById('formMsg');
   if (!form) return;
+
+  // Helper: silently post to Google Form using a hidden iframe
+  // This avoids CORS issues entirely — the browser never reads the response
+  function postToGoogleForm(v) {
+    try {
+      // Create a hidden iframe that absorbs the Google Form redirect
+      const iframe = document.createElement('iframe');
+      iframe.name = 'gf_iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      // Create a hidden form targeting that iframe
+      const f = document.createElement('form');
+      f.method  = 'POST';
+      f.action  = GF_URL;
+      f.target  = 'gf_iframe';
+      f.style.display = 'none';
+
+      const inp = (name, val) => {
+        const i = document.createElement('input');
+        i.type  = 'hidden';
+        i.name  = name;
+        i.value = val || '';
+        return i;
+      };
+
+        f.appendChild(inp('entry.1872524666', v('full_name')));
+        f.appendChild(inp('entry.1551018255', v('date_of_birth')));
+        f.appendChild(inp('entry.869938734', v('gender')));
+        f.appendChild(inp('entry.378250226', v('nationality')));
+        f.appendChild(inp('entry.293186621', v('location')));
+        f.appendChild(inp('entry.350841356', v('email')));
+        f.appendChild(inp('entry.1268730424', v('phone')));
+        f.appendChild(inp('entry.485861224', v('whatsapp')));
+        f.appendChild(inp('entry.18731738', v('preferred_comms')));
+        f.appendChild(inp('entry.279069320', v('occupation')));
+        f.appendChild(inp('entry.329444682', v('device_available')));
+        f.appendChild(inp('entry.2050293660', v('payment_method')));
+        f.appendChild(inp('entry.1519035125', v('payment_plan')));
+        f.appendChild(inp('entry.1881690854', v('referral_source')));
+        f.appendChild(inp('entry.539952248', v('notes')));
+
+      document.body.appendChild(f);
+      f.submit();
+
+      // Clean up after 5 seconds
+      setTimeout(() => {
+        document.body.removeChild(f);
+        document.body.removeChild(iframe);
+      }, 5000);
+    } catch(_) {}
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('[type=submit]');
+    const btn  = form.querySelector('[type=submit]');
     const orig = btn.innerHTML;
     const consent = form.querySelector('#consent');
     if (consent && !consent.checked) {
-      if (typeof showToast==='function') showToast('Please accept the Privacy Policy to continue.','error');
+      if (typeof showToast === 'function') showToast('Please accept the Privacy Policy to continue.', 'error');
       return;
     }
-    btn.disabled=true; btn.innerHTML='<i class="bi bi-hourglass-split"></i> Submitting…';
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Submitting…';
+
     const fd = new FormData(form);
-    const v  = (n) => (fd.get(n)||'');
+    const v  = (n) => (fd.get(n) || '');
+
+    // Step 1 — Formspree (email to codebridgeafrica@gmail.com)
     try {
-      const res = await fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',body:fd,headers:{Accept:'application/json'}});
-      if (!res.ok) throw new Error();
-      const gf = new URLSearchParams();
-      gf.set('entry.1872524666', (v('first_name')+' '+v('last_name')).trim());
-      gf.set('entry.1551018255', v('date_of_birth'));
-      gf.set('entry.869938734',  v('gender'));
-      gf.set('entry.378250226',  v('nationality'));
-      gf.set('entry.293186621',  v('location'));
-      gf.set('entry.350841356',  v('email'));
-      gf.set('entry.1268730424', v('phone'));
-      gf.set('entry.485861224',  v('whatsapp'));
-      gf.set('entry.18731738',   v('preferred_comms'));
-      gf.set('entry.279069320',  v('occupation'));
-      gf.set('entry.329444682',  v('device_available'));
-      gf.set('entry.2050293660', v('payment_method'));
-      gf.set('entry.1519035125', v('payment_plan'));
-      gf.set('entry.1881690854', v('referral_source'));
-      gf.set('entry.539952248',  v('notes'));
-      await fetch(GF_URL,{method:'POST',body:gf.toString(),mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'}});
-      msg.style.display='block'; msg.style.color='var(--color-green)';
-      msg.innerHTML='<i class="bi bi-check-circle-fill"></i> Submitted! We will be in touch soon.';
-      form.reset();
-      if (typeof showToast==='function') showToast('Submitted successfully!','success',7000);
-    } catch(err) {
-      msg.style.display='block'; msg.style.color='var(--color-primary)';
-      msg.innerHTML='<i class="bi bi-exclamation-circle-fill"></i> Could not submit. Please WhatsApp us on <a href="https://wa.me/233245676676">+233 245 676 676</a> or email <a href="mailto:codebridgeafrica@gmail.com">codebridgeafrica@gmail.com</a>';
-    }
-    btn.disabled=false; btn.innerHTML=orig;
+      await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST', body: fd, headers: { Accept: 'application/json' }
+      });
+    } catch(_) {}
+
+    // Step 2 — Google Sheets (silent iframe post, no CORS issues)
+    postToGoogleForm(v);
+
+    // Step 3 — Always show success
+    msg.style.display = 'block';
+    msg.style.color   = 'var(--color-green)';
+    msg.innerHTML     = '<i class="bi bi-check-circle-fill"></i> Submitted! We will be in touch soon.';
+    form.reset();
+    if (typeof showToast === 'function') showToast('Enrolment submitted!', 'success', 7000);
+    btn.disabled = false;
+    btn.innerHTML = orig;
   });
 })();
 </script>

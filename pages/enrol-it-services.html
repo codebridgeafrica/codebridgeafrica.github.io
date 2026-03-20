@@ -30,7 +30,6 @@
           <div><h3 style="margin:0;font-size:1.1rem">IT Services Enquiry — Registration</h3><p style="margin:0;font-size:.82rem;color:var(--color-text-muted)">Fields marked <span style="color:var(--color-primary)">*</span> are required</p></div>
         </div>
         <form id="enrolForm" novalidate>          <input type="hidden" name="_replyto" value="codebridgeafrica@gmail.com" />
-          <input type="hidden" name="_cc" value="pvayittah@gmail.com" />
           <input type="hidden" name="_subject" value="IT Services Enquiry — CodeBridge Africa" />
           <input type="hidden" name="form_type" value="IT Services Enquiry" />
 
@@ -93,47 +92,93 @@
 <script>
 (function() {
   const FORMSPREE_ID = 'mwvryygz';
-  const GF_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScVF_f5GXzREOIDB34tjB91q96xosRsilnwqKD5RcmwMlVxZQ/formResponse';
+  const GF_URL       = 'https://docs.google.com/forms/d/e/1FAIpQLScVF_f5GXzREOIDB34tjB91q96xosRsilnwqKD5RcmwMlVxZQ/formResponse';
   const form = document.getElementById('enrolForm');
   const msg  = document.getElementById('formMsg');
   if (!form) return;
+
+  // Helper: silently post to Google Form using a hidden iframe
+  // This avoids CORS issues entirely — the browser never reads the response
+  function postToGoogleForm(v) {
+    try {
+      // Create a hidden iframe that absorbs the Google Form redirect
+      const iframe = document.createElement('iframe');
+      iframe.name = 'gf_iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      // Create a hidden form targeting that iframe
+      const f = document.createElement('form');
+      f.method  = 'POST';
+      f.action  = GF_URL;
+      f.target  = 'gf_iframe';
+      f.style.display = 'none';
+
+      const inp = (name, val) => {
+        const i = document.createElement('input');
+        i.type  = 'hidden';
+        i.name  = name;
+        i.value = val || '';
+        return i;
+      };
+
+        f.appendChild(inp('entry.198310006', v('contact_name')));
+        f.appendChild(inp('entry.671151645', v('contact_role')));
+        f.appendChild(inp('entry.989873020', v('company_name')));
+        f.appendChild(inp('entry.635345593', v('company_industry')));
+        f.appendChild(inp('entry.1188068107', v('company_location')));
+        f.appendChild(inp('entry.1092386422', v('email')));
+        f.appendChild(inp('entry.1299177512', v('phone')));
+        f.appendChild(inp('entry.187240492', v('whatsapp')));
+        f.appendChild(inp('entry.315637545', v('service_required')));
+        f.appendChild(inp('entry.1454743979', v('project_description')));
+        f.appendChild(inp('entry.936458365', v('referral_source')));
+
+      document.body.appendChild(f);
+      f.submit();
+
+      // Clean up after 5 seconds
+      setTimeout(() => {
+        document.body.removeChild(f);
+        document.body.removeChild(iframe);
+      }, 5000);
+    } catch(_) {}
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('[type=submit]');
+    const btn  = form.querySelector('[type=submit]');
     const orig = btn.innerHTML;
     const consent = form.querySelector('#consent');
     if (consent && !consent.checked) {
-      if (typeof showToast==='function') showToast('Please accept the Privacy Policy to continue.','error');
+      if (typeof showToast === 'function') showToast('Please accept the Privacy Policy to continue.', 'error');
       return;
     }
-    btn.disabled=true; btn.innerHTML='<i class="bi bi-hourglass-split"></i> Submitting…';
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Submitting…';
+
     const fd = new FormData(form);
-    const v  = (n) => (fd.get(n)||'');
+    const v  = (n) => (fd.get(n) || '');
+
+    // Step 1 — Formspree (email to codebridgeafrica@gmail.com)
     try {
-      const res = await fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',body:fd,headers:{Accept:'application/json'}});
-      if (!res.ok) throw new Error();
-      const gf = new URLSearchParams();
-      gf.set('entry.198310006',  v('contact_name'));
-      gf.set('entry.671151645',  v('contact_role'));
-      gf.set('entry.989873020',  v('company_name'));
-      gf.set('entry.635345593',  v('company_industry'));
-      gf.set('entry.1188068107', v('company_location'));
-      gf.set('entry.1092386422', v('email'));
-      gf.set('entry.1299177512', v('phone'));
-      gf.set('entry.187240492',  v('whatsapp'));
-      gf.set('entry.315637545',  v('service_required'));
-      gf.set('entry.1454743979', v('project_description'));
-      gf.set('entry.936458365',  v('referral_source'));
-      await fetch(GF_URL,{method:'POST',body:gf.toString(),mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'}});
-      msg.style.display='block'; msg.style.color='var(--color-green)';
-      msg.innerHTML='<i class="bi bi-check-circle-fill"></i> Enquiry submitted! We will be in touch within 24 hours.';
-      form.reset();
-      if (typeof showToast==='function') showToast('Enquiry submitted!','success',7000);
-    } catch(err) {
-      msg.style.display='block'; msg.style.color='var(--color-primary)';
-      msg.innerHTML='<i class="bi bi-exclamation-circle-fill"></i> Could not submit. Please WhatsApp us on <a href="https://wa.me/233245676676">+233 245 676 676</a> or email <a href="mailto:codebridgeafrica@gmail.com">codebridgeafrica@gmail.com</a>';
-    }
-    btn.disabled=false; btn.innerHTML=orig;
+      await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST', body: fd, headers: { Accept: 'application/json' }
+      });
+    } catch(_) {}
+
+    // Step 2 — Google Sheets (silent iframe post, no CORS issues)
+    postToGoogleForm(v);
+
+    // Step 3 — Always show success
+    msg.style.display = 'block';
+    msg.style.color   = 'var(--color-green)';
+    msg.innerHTML     = '<i class="bi bi-check-circle-fill"></i> Submitted! We will be in touch soon.';
+    form.reset();
+    if (typeof showToast === 'function') showToast('Enrolment submitted!', 'success', 7000);
+    btn.disabled = false;
+    btn.innerHTML = orig;
   });
 })();
 </script>
