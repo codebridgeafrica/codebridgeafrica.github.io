@@ -470,10 +470,29 @@ function renderNavbar() {
 
   if (toggler && navMenu) {
 
-    // Open / close the menu when the hamburger icon is clicked
+    // Open / close the main menu when the hamburger icon is clicked
     toggler.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('nav-open');
       toggler.setAttribute('aria-expanded', String(isOpen));
+      toggler.innerHTML = isOpen
+        ? '<i class="bi bi-x-lg"></i>'
+        : '<i class="bi bi-list"></i>';
+    });
+
+    // On mobile: make each dropdown parent toggle open/close on tap
+    // On desktop: CSS :hover handles this — JS only fires on touch/small screens
+    navMenu.querySelectorAll('.has-dropdown > .nav-link').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992) {
+          e.preventDefault(); // stop navigation on mobile — tap to open dropdown
+          const li = link.closest('.has-dropdown');
+          const isOpen = li.classList.toggle('open');
+          // Close all other open dropdowns
+          navMenu.querySelectorAll('.has-dropdown.open').forEach((other) => {
+            if (other !== li) other.classList.remove('open');
+          });
+        }
+      });
     });
 
     // Close the menu if the user clicks anywhere outside the navbar
@@ -482,14 +501,27 @@ function renderNavbar() {
       if (navbar && !navbar.contains(e.target)) {
         navMenu.classList.remove('nav-open');
         toggler.setAttribute('aria-expanded', 'false');
+        toggler.innerHTML = '<i class="bi bi-list"></i>';
+        navMenu.querySelectorAll('.has-dropdown.open').forEach((li) => li.classList.remove('open'));
       }
     });
 
-    // Close the menu after a nav link is clicked (navigating to new page)
-    navMenu.querySelectorAll('a').forEach((link) => {
+    // Close the menu after a non-dropdown nav link is clicked
+    navMenu.querySelectorAll('li:not(.has-dropdown) a').forEach((link) => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('nav-open');
         toggler.setAttribute('aria-expanded', 'false');
+        toggler.innerHTML = '<i class="bi bi-list"></i>';
+      });
+    });
+
+    // Close dropdown sub-links and the whole menu after clicking a dropdown item
+    navMenu.querySelectorAll('.dropdown-menu a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('nav-open');
+        toggler.setAttribute('aria-expanded', 'false');
+        toggler.innerHTML = '<i class="bi bi-list"></i>';
+        navMenu.querySelectorAll('.has-dropdown.open').forEach((li) => li.classList.remove('open'));
       });
     });
 

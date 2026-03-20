@@ -581,3 +581,385 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .enrol-card-badge { display:inline-block; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:.15rem .6rem; border-radius:100px; margin-bottom:.3rem; }
 .enrol-card-arrow { font-size:1.3rem; color:var(--color-border); flex-shrink:0; transition:color var(--transition-fast); }
 .enrol-card:hover .enrol-card-arrow { color:var(--color-primary); }
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE RESPONSIVE FIXES
+   Fixes all inline grids, navbar, announcement bar, enrolment pages,
+   pathway pages, services, standards, contact, about, hero
+   ========================================================================== */
+
+/* ── ANNOUNCEMENT BAR MOBILE ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .announcement-inner { padding: 0.4rem 1rem; }
+  .ann-left img { height: 28px; }
+  .ann-enrol-btn { font-size: 0.68rem; padding: 0.2rem 0.65rem; }
+}
+
+/* ── NAVBAR MOBILE ───────────────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  /* Dropdowns collapsed by default on mobile — only open when toggled */
+  .dropdown-menu { display: none; }
+  .has-dropdown.open .dropdown-menu { display: block; }
+
+  /* Add toggle chevron for mobile dropdowns */
+  .has-dropdown > .nav-link { display: flex; justify-content: space-between; align-items: center; }
+  .has-dropdown > .nav-link::after { content: '\203A'; display: inline-block; font-size: 1.1rem; transform: rotate(90deg); transition: transform 0.2s; margin-left: auto; }
+  .has-dropdown.open > .nav-link::after { transform: rotate(-90deg); }
+
+  /* Nav scrollable if too tall */
+  .navbar-nav { max-height: 80vh; overflow-y: auto; }
+}
+
+/* ── HERO SECTION ────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero { padding: 2rem 0 1.5rem; }
+  /* Force hero grid to single column */
+  .hero .container > div[style*="grid-template-columns:1fr 1fr"],
+  .hero .container > div[style*="grid-template-columns: 1fr 1fr"] {
+    display: block !important;
+  }
+}
+
+/* ── HOMEPAGE STATS BAR ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .stats-bar .container > div { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ── ENROLMENT PAGES — sidebar stacks below form ────────────────────────── */
+@media (max-width: 768px) {
+  /* The 1fr 300px sidebar layout */
+  div[style*="grid-template-columns:1fr 300px"],
+  div[style*="grid-template-columns: 1fr 300px"] {
+    display: block !important;
+  }
+  /* Unstick the sidebar */
+  div[style*="position:sticky"],
+  div[style*="position: sticky"] {
+    position: relative !important;
+    top: auto !important;
+  }
+}
+
+/* ── PATHWAY PAGES — sidebar stacks ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* 1fr 320px grid used on all pathway pages */
+  div[style*="grid-template-columns:1fr 320px"],
+  div[style*="grid-template-columns: 1fr 320px"] {
+    display: block !important;
+  }
+  /* Stage phases grid — 3 columns to 1 */
+  div[style*="grid-template-columns:repeat(3,1fr)"],
+  div[style*="grid-template-columns: repeat(3,1fr)"],
+  div[style*="grid-template-columns:repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Stat summary boxes — 3 or 4 col to 2 col */
+  div[style*="grid-template-columns:repeat(4,1fr)"],
+  div[style*="grid-template-columns: repeat(4,1fr)"],
+  div[style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  /* Stage cards horizontal */
+  .stage-card-horizontal { grid-template-columns: 1fr !important; }
+  .stage-age { display: none; }
+}
+
+/* ── CONTACT PAGE ────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  div[style*="grid-template-columns:1.3fr 1fr"],
+  div[style*="grid-template-columns: 1.3fr 1fr"] {
+    display: block !important;
+  }
+  /* Contact dept cards */
+  .dept-card { margin-bottom: 1rem; }
+  /* Form rows inside contact */
+  div[style*="display:grid;grid-template-columns:1fr 1fr"],
+  div[style*="display: grid; grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── SERVICES PAGE — horizontal service cards ────────────────────────────── */
+@media (max-width: 768px) {
+  /* Service cards: icon + content side by side to stacked */
+  div[style*="grid-template-columns:80px 1fr"],
+  div[style*="grid-template-columns: 80px 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Pricing cards */
+  div[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  /* Process steps */
+  .process-step { gap: 0.75rem; }
+}
+
+/* ── STANDARDS PAGE ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  div[style*="grid-template-columns:80px 1fr"],
+  div[style*="grid-template-columns: 80px 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* The 2-col grid inside standards commitment block */
+  div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── ABOUT PAGE ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  div[style*="grid-template-columns:1fr 1fr;gap:3rem"],
+  div[style*="grid-template-columns: 1fr 1fr; gap: 3rem"] {
+    display: block !important;
+  }
+  div[style*="grid-template-columns:1fr 1fr;gap:1rem"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── FAQ PAGE ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  div[style*="grid-template-columns:1fr 300px"] {
+    display: block !important;
+  }
+}
+
+/* ── ROADMAP PAGE ────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Vertical roadmap cards */
+  .roadmap-vertical .rv-item { flex-direction: column; gap: 0.75rem; }
+  /* Vision summary cards */
+  div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+}
+
+/* ── PORTAL PAGE ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .portal-wrap { grid-template-columns: 1fr !important; }
+  .portal-brand { min-height: 180px; padding: 1.5rem; }
+  .portal-right { padding: 1.5rem; }
+  .portal-form-card { padding: 1.5rem; }
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .footer-brand { text-align: center; }
+  .social-links { justify-content: center; }
+}
+
+/* ── ENROLMENT FORM ROWS ─────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr !important; }
+  /* Enrolment page header stat boxes */
+  div[style*="grid-template-columns:repeat(3,1fr)"],
+  div[style*="grid-template-columns:repeat(4,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ── BLOG GRID ───────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .blog-grid { grid-template-columns: 1fr !important; }
+  .featured-post { grid-template-columns: 1fr !important; }
+  .featured-thumb { min-height: 160px !important; }
+}
+
+/* ── GENERAL: any two-column inline grid on small screens ────────────────── */
+@media (max-width: 480px) {
+  /* Catch-all for two-col inline grids not covered above */
+  div[style*="display:grid"][style*="1fr 1fr"],
+  div[style*="display: grid"][style*="1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Pricing cards */
+  .pricing-card { margin-bottom: 1rem; }
+  /* Content cards in grid-3 */
+  .grid-3 { grid-template-columns: 1fr !important; }
+  .grid-2 { grid-template-columns: 1fr !important; }
+}
+
+/* ── OVERFLOW PREVENTION ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  * { max-width: 100%; }
+  img { max-width: 100%; height: auto; }
+  table { display: block; overflow-x: auto; }
+  /* Prevent long words breaking layout */
+  p, h1, h2, h3, h4, li { word-break: break-word; overflow-wrap: break-word; }
+}
+
+/* ── HERO GRID ───────────────────────────────────────────────────────────── */
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .hero-description { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-illustration { display: none; }
+}
+
+/* ── ENROL PAGES — form + sidebar stack cleanly ─────────────────────────── */
+.enrol-layout { display: grid; grid-template-columns: 1fr 300px; gap: 2.5rem; align-items: start; }
+@media (max-width: 900px) {
+  .enrol-layout { grid-template-columns: 1fr; }
+}
+
+/* ── PATHWAY PAGES layout ────────────────────────────────────────────────── */
+.pathway-layout { display: grid; grid-template-columns: 1fr 320px; gap: 3rem; align-items: start; }
+@media (max-width: 900px) {
+  .pathway-layout { grid-template-columns: 1fr; }
+  /* Sidebar sticky becomes relative */
+  .pathway-layout > div:last-child > div { position: relative !important; top: auto !important; }
+}
+
+/* ── STAGE PHASE CARDS (3-col inside stage cards) ───────────────────────── */
+@media (max-width: 600px) {
+  .stage-card-horizontal { padding: 1rem; }
+  .stage-number { width: 40px; height: 40px; font-size: 1rem; flex-shrink: 0; }
+}
+
+/* ==========================================================================
+   PAGE-SPECIFIC RESPONSIVE CLASSES
+   Replaces all remaining inline grids so they collapse properly on mobile
+   ========================================================================== */
+
+/* About page */
+.about-main-grid  { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+.about-cards-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem; }
+
+/* Contact page */
+.contact-main-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; align-items:start; }
+
+/* FAQ page */
+.faq-layout { display:grid; grid-template-columns:1fr 300px; gap:3rem; align-items:start; }
+
+/* Services page */
+.services-process-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+.service-row-card { background:var(--color-white); border-radius:var(--radius-xl); box-shadow:var(--shadow-card); border:1px solid var(--color-border); padding:2rem; margin-bottom:1.5rem; display:grid; grid-template-columns:80px 1fr; gap:2rem; align-items:start; }
+
+/* Standards page */
+.standard-row-card { background:var(--color-white); border-radius:var(--radius-xl); border:1px solid var(--color-border); box-shadow:var(--shadow-card); padding:2rem; margin-bottom:1.5rem; display:grid; grid-template-columns:80px 1fr; gap:2rem; align-items:start; }
+
+/* Shared: 2-col checklist grids */
+.two-col-checks { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.two-col-grid   { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+
+/* ── MOBILE OVERRIDES FOR NEW CLASSES ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-main-grid,
+  .contact-main-grid,
+  .faq-layout,
+  .services-process-grid { display:block !important; }
+
+  .about-cards-grid,
+  .two-col-checks,
+  .two-col-grid { grid-template-columns:1fr !important; }
+
+  .service-row-card,
+  .standard-row-card { grid-template-columns:1fr !important; gap:1rem; }
+
+  /* Icon box on service/standard cards — centre on mobile */
+  .service-row-card > div:first-child,
+  .standard-row-card > div:first-child { width:56px; height:56px; }
+
+  /* FAQ sidebar goes below on mobile */
+  .faq-layout > div:last-child { margin-top:2rem; }
+  .faq-layout > div:last-child > div { position:relative !important; top:auto !important; }
+
+  /* Contact main grid spacing */
+  .contact-main-grid > div + div { margin-top:2rem; }
+}
+
+@media (max-width: 600px) {
+  /* Pricing cards stack */
+  div[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns:1fr !important; }
+
+  /* Enrolment sidebar info rows */
+  .enrol-layout > div:last-child { margin-top:2rem; }
+}
+
+/* ── SITEMAP PAGE ─────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .sitemap-grid { grid-template-columns:1fr !important; }
+}
+
+/* ── COURSES PAGE ─────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .programme-row { display:block !important; }
+}
+
+/* ── CAREERS PAGE ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .job-card { display:block !important; }
+}
+
+/* ── GENERAL FORM IMPROVEMENTS ON MOBILE ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .form-control, .form-select { font-size:16px !important; } /* Prevents iOS zoom */
+  .btn-lg { width:100%; justify-content:center; }
+  .enrol-card { flex-wrap:wrap; }
+  .enrol-card-body h4 { font-size:.9rem; }
+}
+
+/* ── ANNOUNCEMENT BAR — very small phones ─────────────────────────────────── */
+@media (max-width: 400px) {
+  .ann-left img { height:24px; }
+  .ann-enrol-btn { display:none; } /* hide on tiny screens, WhatsApp is enough */
+}
+
+/* ── STAT SUMMARY BOXES (pathway pages) ──────────────────────────────────── */
+@media (max-width: 600px) {
+  div[style*="grid-template-columns:repeat(4,1fr)"],
+  div[style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ── ROADMAP PAGE CLASSES ─────────────────────────────────────────────────── */
+.col-lg-6 { flex:0 0 auto; width:calc(50% - 1rem); }
+.col-lg-8 { flex:0 0 auto; width:calc(66.667% - 1rem); }
+
+/* Roadmap vertical timeline */
+.roadmap-vertical { display:flex; flex-direction:column; gap:0; }
+.rv-item { display:flex; gap:1.5rem; align-items:flex-start; padding-bottom:2rem; position:relative; }
+.rv-item::before { content:''; position:absolute; left:19px; top:40px; bottom:0; width:2px; background:var(--color-border); }
+.rv-item:last-child::before { display:none; }
+.rv-dot { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.9rem; flex-shrink:0; z-index:1; }
+.rv-dot.done   { background:var(--color-green); color:#fff; }
+.rv-dot.active { background:var(--color-primary); color:#fff; }
+.rv-dot.future { background:var(--color-bg); border:2px solid var(--color-border); color:var(--color-navy); }
+.rv-dot.vision { background:var(--color-yellow); color:var(--color-navy); }
+.rv-card { background:var(--color-white); border-radius:var(--radius-lg); border:1px solid var(--color-border); padding:1.5rem; flex:1; box-shadow:var(--shadow-sm); }
+.rv-card.active { border-color:var(--color-primary); box-shadow:0 0 0 3px rgba(232,93,26,.08); }
+.rv-card.vision { border-color:var(--color-yellow); }
+.rv-status { display:inline-flex; align-items:center; gap:.4rem; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:.2rem .7rem; border-radius:100px; margin-bottom:.5rem; }
+.rv-status.done   { background:rgba(46,125,50,.1); color:var(--color-green); }
+.rv-status.active { background:rgba(232,93,26,.1); color:var(--color-primary); }
+.rv-status.future { background:rgba(26,43,74,.08); color:var(--color-navy); }
+.rv-status.vision { background:rgba(240,180,41,.15); color:#8a6000; }
+.standard-card { background:var(--color-white); border-radius:var(--radius-lg); padding:1.5rem; box-shadow:var(--shadow-card); border:1px solid var(--color-border); text-align:center; }
+.standard-card.green { border-top:3px solid var(--color-green); }
+.standard-card.teal  { border-top:3px solid var(--color-teal); }
+
+@media (max-width: 768px) {
+  .col-lg-6, .col-lg-8 { width:100%; }
+  .row.g-5 { flex-direction:column; }
+  .rv-item { gap:1rem; }
+  .rv-dot { width:34px; height:34px; font-size:.8rem; }
+  .rv-item::before { left:16px; top:34px; }
+}
+
+/* ── iOS INPUT ZOOM FIX (global) ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea { font-size:16px !important; }
+}
+
+/* ── NAVBAR: prevent toggler from squishing on very small phones ─────────── */
+@media (max-width: 360px) {
+  .navbar-inner { height:54px; }
+  .navbar-toggler { padding:0.25rem 0.4rem; font-size:1.1rem; }
+  .ann-left img { height:22px; }
+}
